@@ -36,7 +36,6 @@ class MainActivity : AppCompatActivity() {
                         showData(data)
                     }
                 }
-
                 override fun onFailure(call: Call<ResponseServer>, t: Throwable) {
                     Log.d("Error server", t.message)
                     progress.visibility = View.GONE
@@ -47,7 +46,10 @@ class MainActivity : AppCompatActivity() {
             progress.visibility = View.GONE
             Toast.makeText(this,"No internet",Toast.LENGTH_LONG).show()
         }
+    }
 
+    private fun showData(data: ArrayList<Batik>?) {
+        listBatik.adapter = BatikAdapter(data)
     }
 
     fun isConnect():Boolean{
@@ -55,7 +57,5 @@ class MainActivity : AppCompatActivity() {
         return connect.activeNetworkInfo != null && connect.activeNetworkInfo.isConnected
     }
 
-    private fun showData(data: ArrayList<Batik>?) {
-        listBatik.adapter = BatikAdapter(data)
-    }
+
 }

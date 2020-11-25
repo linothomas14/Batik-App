@@ -45,8 +45,6 @@ class BatikAdapter(var data: ArrayList<Batik>?) :RecyclerView.Adapter<BatikAdapt
             intent.putExtra("img",data?.get(position)?.link_batik)
             holder.itemView.context.startActivity(intent)
         }
-
-
     }
 
     override fun getItemCount(): Int {
